@@ -8,8 +8,8 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ManassehV2_MedTracker-G2&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ManassehV2_MedTracker-G2)
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ManassehV2_MedTracker-G2&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ManassehV2_MedTracker-G2)
-
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=ManassehV2_MedTracker-G2&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=ManassehV2_MedTracker-G2)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ManassehV2_MedTracker-G2&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ManassehV2_MedTracker-G2)
+
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=ManassehV2_MedTracker-G2&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=ManassehV2_MedTracker-G2)
