@@ -27,6 +27,21 @@ public class AuthController : ControllerBase
         return Ok(user);
     }
 
+    [HttpPost("login")]
+    public ActionResult<string> login(UserDto request)
+    {
+        if (user.Username != request.Username)
+            return BadRequest("Invalid Credentials");
+
+        var encoder = new HMACSHA512(user.Salt);
+        var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
+        if (!computedHash.SequenceEqual(user.HashedPassword))
+            return BadRequest("Invalid Credentials!");
+
+        
+        return Ok("some token");
+    }
+
     [HttpGet]
     public ActionResult working()
     {
