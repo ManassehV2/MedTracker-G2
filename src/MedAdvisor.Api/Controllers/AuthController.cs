@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using MedAdvisor.Api.Models;
 using MedAdvisor.Api;
 using System.Security.Cryptography;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace MedAdvisor.Api.Controllers;
 
@@ -10,6 +13,12 @@ namespace MedAdvisor.Api.Controllers;
 public class AuthController : ControllerBase
 {
     public static UserModel user = new UserModel();
+    private readonly IConfiguration _config;
+
+    public AuthController(IConfiguration config)
+    {
+        _config = config;
+    }
 
     [HttpPost("signup")]
     public ActionResult<UserModel> signup(UserDto request)
@@ -31,7 +40,7 @@ public class AuthController : ControllerBase
     public ActionResult<string> login(UserDto request)
     {
         if (user.Username != request.Username)
-            return BadRequest("Invalid Credentials");
+            return BadRequest("Invalid Credentials!");
 
         var encoder = new HMACSHA512(user.Salt);
         var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
@@ -39,35 +48,27 @@ public class AuthController : ControllerBase
             return BadRequest("Invalid Credentials!");
 
         
-        return Ok("some token");
+        return Ok(CreateToken(user));
     }
 
-    [HttpGet]
-    public ActionResult working()
+    public string CreateToken(UserModel user)
     {
-        return Ok();
+        List<Claim> claims = new List<Claim>{
+            new Claim(ClaimTypes.Name, user.Username)
+        };
+
+        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value));
+
+        var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+        var token = new JwtSecurityToken(
+            claims: claims,
+            expires : DateTime.Now.AddDays(45),
+            signingCredentials: cred
+        );  
+        string jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return jwtToken;
     }
-    // private static readonly string[] Summaries = new[]
-    // {
-    //     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    // };
 
-    // private readonly ILogger<WeatherForecastController> _logger;
-
-    // public WeatherForecastController(ILogger<WeatherForecastController> logger)
-    // {
-    //     _logger = logger;
-    // }
-
-    // [HttpGet(Name = "GetWeatherForecast")]
-    // public IEnumerable<WeatherForecast> Get()
-    // {
-    //     return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-    //     {
-    //         Date = DateTime.Now.AddDays(index),
-    //         TemperatureC = Random.Shared.Next(-20, 55),
-    //         Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-    //     })
-    //     .ToArray();
-    // }
 }
