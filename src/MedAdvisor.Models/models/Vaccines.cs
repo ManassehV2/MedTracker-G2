@@ -1,8 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MedAdvisor.Models;
-public class Vaccines
+public class Vaccine
 {
-    public string userId{get;set;}
-    public string VaccinesName{ get; set;}
-    public string Vaccinescode{ get; set;}
+    public int Id { get; set; }
+    public int UserId { get; set; }
+
+    [Required]
+    [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
+    public string? Name { get; set; }
+
+    [Required]
+    [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
+    public string? Code { get; set; }
 
 }
