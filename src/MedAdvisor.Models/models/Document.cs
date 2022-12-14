@@ -1,10 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace MedAdvisor.Models;
-public class Document
+public class Diagnosis
 {
-    public string userId{get;set;}
-    // public file{get; set;}
-    public string DocumentTitle{get; set;}
-    public string DocumentType{get; set;}
-    public string DocumentDescription{get; set;}
+    public int Id { get; set; }
+    public int UserId { get; set; }
+
+    [Required]
+    [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
+    public string? Name { get; set; }
+
+    [Required]
+    [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
+    public string? Code { get; set; }
 
 }
