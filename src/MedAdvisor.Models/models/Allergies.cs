@@ -1,8 +1,9 @@
 namespace MedAdvisor.Models;
-public class Allergies
+public class Allergy
 {
-    public string userId{get;set;}
-    public string AllergyName{ get; set;}
-    public string Allergycode{ get; set;}
+    public int Id { get; set; }
+    public int UserId { get; set; }
+    public string Name { get; set; }
+    public string Code { get; set; }
 
 }
