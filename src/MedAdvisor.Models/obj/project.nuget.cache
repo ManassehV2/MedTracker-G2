@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4TSk8+Yvd7RxepkuBZQR55qlL2LNq/WVrUEmhQDGA97fq6DreV1EN7mbnQVBjauaNqqwHWQE4uX75Ecvunr2tA==",
+  "dgSpecHash": "OAT6hWofn4ZPdvzfIdhzeNYKG2p5tzc779tMl14Nu44/f6vK8LI7dByf65zizJ91++VoepEQXB6GLay76Ljy9g==",
   "success": true,
-  "projectFilePath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
