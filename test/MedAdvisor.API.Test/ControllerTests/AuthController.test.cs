@@ -48,8 +48,46 @@ public class AuthControllerTests
         //Assert
         result.Should().NotBeNull();
 
-        result.Should().BeOfType(typeof(ActionResult<string>));
+        result.Should().BeOfType(typeof(OkObjectResult));
 
+    }
+    
+    [Fact]
+    public void AuthController_LoginWithWrongUsername_ReturnBadRequest()
+    {
+        //Arrange
+        var authController = new AuthController(_config);
+        var userDto = A.Fake<UserDto>();
+        
+        //Act
+        authController.signup(userDto);
+
+        userDto.Username = "newUsername";
+        var result = authController.login(userDto);
+
+        //Assert
+        result.Should().NotBeNull();
+
+        result.Should().BeOfType(typeof(BadRequestObjectResult));
+
+    }
+    [Fact]
+    public void AuthController_LoginWithWrongPassword_ReturnBadRequest()
+    {
+        //Arrange
+        var authController = new AuthController(_config);
+        var userDto = A.Fake<UserDto>();
+
+        //Act
+        authController.signup(userDto);
+
+        userDto.Password = "newPassword";
+        var result = authController.login(userDto);
+
+        //Assert
+        result.Should().NotBeNull();
+
+        result.Should().BeOfType(typeof(BadRequestObjectResult));
 
     }
     
