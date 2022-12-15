@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using MedAdvisor.Api.Models;
-using MedAdvisor.Api;
 using System.Security.Cryptography;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
@@ -21,7 +20,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("signup")]
-    public ActionResult<UserModel> signup(UserDto request)
+    public IActionResult signup(UserDto request)
     {
         string usersPass = request.Password;
 
@@ -33,7 +32,7 @@ public class AuthController : ControllerBase
         user.Salt = passwordSalt;
         user.HashedPassword = passwordHash;
 
-        return Ok(user);
+        return Ok();
     }
 
     [HttpPost("login")]
@@ -57,9 +56,9 @@ public class AuthController : ControllerBase
             new Claim(ClaimTypes.Name, user.Username)
         };
 
-        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value));
+        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value != "" ? _config.GetSection("AppSettings:JWTToken").Value : "some key which Is strong" ));
 
-        var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+        var cred = new SigningCredentials( key, SecurityAlgorithms.HmacSha512Signature);
 
         var token = new JwtSecurityToken(
             claims: claims,
