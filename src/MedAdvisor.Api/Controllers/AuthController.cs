@@ -11,7 +11,7 @@ namespace MedAdvisor.Api.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-    public static UserModel user = new UserModel();
+    public static readonly UserModel user = new UserModel();
     private readonly IConfiguration _config;
 
     public AuthController(IConfiguration config)
@@ -22,8 +22,6 @@ public class AuthController : ControllerBase
     [HttpPost("signup")]
     public IActionResult signup(UserDto request)
     {
-        string usersPass = request.Password;
-
         var encoder = new HMACSHA512();
         byte[] passwordSalt = encoder.Key;
         byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
@@ -36,7 +34,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public ActionResult<string> login(UserDto request)
+    public IActionResult login(UserDto request)
     {
         if (user.Username != request.Username)
             return BadRequest("Invalid Credentials!");
