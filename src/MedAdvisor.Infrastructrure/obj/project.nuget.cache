@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bR0/Aqa4jZBVMiekO8SSro0IM/xxeQ/Z/Z+/yRDWuYFarFu7+FydHwaxSyE0rhVgP8b05FeW+AZTpiRomcG6Iw==",
+  "dgSpecHash": "wfHeMsAyBT/wFcqFibu1MaEU5x90RCGrJxXiUWhwHe2SiZRKUM5Ht2jYYZ+vJwFc+5QDSIqUpjqD9BQ24LGSSw==",
   "success": true,
-  "projectFilePath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Infrastructrure/MedAdvisor.Infrastructrure.csproj",
+  "projectFilePath": "c:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

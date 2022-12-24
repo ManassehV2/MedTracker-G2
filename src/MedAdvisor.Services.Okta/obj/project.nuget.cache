@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dQXhuUj6sd2SaBZKMVKtPJncwPtKtWNElhmHJ+5DwwzTaGr59/M5cY3s7s/4vTNRyd+VJPvzwv/tRzxjQ937cA==",
+  "dgSpecHash": "BhTIsMovGD0m2sJKHtzMOJpbVw8ryiZhX6sYU3nZua/bXIY2Ov13/ODhHcYZPhVybcizI3lCDdc0Qpj1zwOq/g==",
   "success": true,
-  "projectFilePath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Services.Okta/MedAdvisor.Services.Okta.csproj",
+  "projectFilePath": "c:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Services.Okta\\MedAdvisor.Services.Okta.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
