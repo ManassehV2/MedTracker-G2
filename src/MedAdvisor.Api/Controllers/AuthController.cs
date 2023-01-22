@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using MedAdvisor.Api.Models;
+
 using System.Security.Cryptography;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using MedAdvisor.Models.Models;
 
 namespace MedAdvisor.Api.Controllers;
 
@@ -11,7 +12,7 @@ namespace MedAdvisor.Api.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-    public static readonly UserModel user = new UserModel();
+    public static readonly User user = new User();
     private readonly IConfiguration _config;
 
     public AuthController(IConfiguration config)
@@ -48,7 +49,7 @@ public class AuthController : ControllerBase
         return Ok(CreateToken(user));
     }
 
-    public string CreateToken(UserModel user)
+    public string CreateToken(User user)
     {
         List<Claim> claims = new List<Claim>{
             new Claim(ClaimTypes.Name, user.Username)

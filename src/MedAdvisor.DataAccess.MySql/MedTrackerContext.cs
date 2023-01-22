@@ -1,7 +1,6 @@
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
-
-using MedAdvisor.Models;
+using MedAdvisor.Models.Models;
 
 namespace MedAdvisor.DataAccess.MySql
 {
@@ -16,7 +15,7 @@ namespace MedAdvisor.DataAccess.MySql
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EFGetStarted.ConsoleApp.NewDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=MedTracker;Trusted_Connection=True;TrustServerCertificate=true;");
         }
     }
 }

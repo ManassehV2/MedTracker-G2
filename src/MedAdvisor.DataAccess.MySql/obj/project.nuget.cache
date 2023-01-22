@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bPXJgr+9AfYmKj1RronF6TnrnIyzAJ4mlaD0WHFvHnasKK5F5RHJZ4/44eiN9o4peM1fNK0LQBZVNL+wZsEhCA==",
+  "dgSpecHash": "3QI2rg/d/YMIqMT9RwLShHHOfNXtN1KGzcsv46B4P4gAlfpG0UXgfgCtOgtmY9bBrvoQCWoD/JhaZbtH1mkwxA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
@@ -78,12 +78,6 @@
     "C:\\Users\\Lenovo\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1608",
       "level": "Warning",
