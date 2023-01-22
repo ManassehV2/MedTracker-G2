@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.25.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
   </ItemGroup>
+
+  <ItemGroup>
+		<ProjectReference Include="..\MedAdvisor.DataAccess.MySql\MedAdvisor.DataAccess.MySql.csproj" />
+		<ProjectReference Include="..\MedAdvisor.Models\MedAdvisor.Models.csproj" />
+	</ItemGroup>
 
 </Project>
