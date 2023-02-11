@@ -10,5 +10,10 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
         {
             _context = context;
         }
+
+        public ICollection<Medicine> GetMedicines(string query)
+        {
+            return _context.Medicines.Where(p => p.Id.ToString().Contains(query) || p.Code.Contains(query) || p.Name.Contains(query)).ToList();
+        }
     }
 }

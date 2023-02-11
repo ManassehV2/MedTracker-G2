@@ -1,7 +1,6 @@
 using MedAdvisor.Models.Models;
 
-
-namespace MedAdvisor.DataAccess.MySql.Interfaces
+namespace MedAdvisor.DataAccess.MySql
 {
     public interface IMedicineRepository
     {

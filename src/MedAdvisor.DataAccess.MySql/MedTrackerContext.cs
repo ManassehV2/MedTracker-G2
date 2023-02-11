@@ -16,7 +16,7 @@ namespace MedAdvisor.DataAccess.MySql
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<UserMedicine> UserMedicines { get; set; }
         public DbSet<UserVaccine> UserVaccines { get; set; }
-        public DbSet<UserDiagnosis> UserDiagnosis { get; set; }
+        public DbSet<UserDiagnosis> UserDiagnoses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

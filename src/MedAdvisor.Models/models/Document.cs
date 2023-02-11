@@ -10,7 +10,7 @@ namespace MedAdvisor.Models.Models
 
         [Required]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
-        public string? Title { get; set; }
+        public string Title { get; set; }
         public string Type { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
 

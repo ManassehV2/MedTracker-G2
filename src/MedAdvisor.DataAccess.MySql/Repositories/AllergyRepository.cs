@@ -10,5 +10,10 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
         {
             _context = context;
         }
+
+        public ICollection<Allergy> GetAllergies(string query)
+        {
+            return _context.Allergies.Where(p => p.Id.ToString().Contains(query) || p.Code.Contains(query) || p.Name.Contains(query)).ToList();
+        }
     }
 }
