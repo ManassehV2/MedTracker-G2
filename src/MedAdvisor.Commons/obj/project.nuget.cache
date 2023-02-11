@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JHULKO7h8OsO4sRXi4lTcV8gMX0NYUPcp/nvZxDOAkBfF5vhSGq1S9zk7G/W2VMFBMVxjTSovpy3v+jrTStcQA==",
+  "dgSpecHash": "w+OqVkFLdP5gswkwSHddtKCZWQpnYTzROzWkWcJfUKMrkKdpp4bum6+tJ1mglPO4ggNu3wCUaHFzOWPQjELatQ==",
   "success": true,
-  "projectFilePath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Commons/MedAdvisor.Commons.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Source\\Repos\\MedTracker-G2\\src\\MedAdvisor.Commons\\MedAdvisor.Commons.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
