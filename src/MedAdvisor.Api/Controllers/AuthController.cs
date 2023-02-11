@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using MedAdvisor.Models.Models;
+using MedAdvisor.DataAccess.MySql;
 
 namespace MedAdvisor.Api.Controllers;
 
@@ -12,12 +13,15 @@ namespace MedAdvisor.Api.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-    public static readonly User user = new User();
+    
     private readonly IConfiguration _config;
+    private readonly IUserRepository _userRepository;
 
-    public AuthController(IConfiguration config)
+    public AuthController(IConfiguration config,IUserRepository userRepository)
+
     {
         _config = config;
+        _userRepository = userRepository;
     }
 
     [HttpPost("signup")]
@@ -26,28 +30,31 @@ public class AuthController : ControllerBase
         var encoder = new HMACSHA512();
         byte[] passwordSalt = encoder.Key;
         byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-        
-        user.Email = request.Email;
-        user.Salt = passwordSalt;
-        user.HashedPassword = passwordHash;
+        var newUser = new User();
+
+        newUser.Email = request.Email;
+        newUser.Salt = passwordSalt;
+        newUser.HashedPassword = passwordHash;
+        _userRepository.CreateUser(newUser);
+
 
         return Ok();
     }
 
-    [HttpPost("login")]
-    public IActionResult login(UserDto request)
-    {
-        if (user.Email != request.Email)
-            return BadRequest("Invalid Credentials!");
+    // [HttpPost("login")]
+    // public IActionResult login(UserDto request)
+    // {
+    //     if (user.Email != request.Email)
+    //         return BadRequest("Invalid Credentials!");
 
-        var encoder = new HMACSHA512(user.Salt);
-        var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-        if (!computedHash.SequenceEqual(user.HashedPassword))
-            return BadRequest("Invalid Credentials!");
+    //     var encoder = new HMACSHA512(user.Salt);
+    //     var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
+    //     if (!computedHash.SequenceEqual(user.HashedPassword))
+    //         return BadRequest("Invalid Credentials!");
 
         
-        return Ok(CreateToken(user));
-    }
+    //     return Ok(CreateToken(user));
+    // }
 
     public string CreateToken(User user)
     {
