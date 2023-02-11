@@ -9,7 +9,7 @@ namespace MedAdvisor.DataAccess.MySql.Interfaces
 
         bool AddMedicines(int id, List<Medicine> medicines);
 
-        bool DeleteMedicine(int id, int medicine_id);
+        bool RemoveMedicine(int id, int medicine_id);
     }
 }
 

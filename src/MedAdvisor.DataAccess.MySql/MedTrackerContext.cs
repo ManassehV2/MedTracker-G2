@@ -73,7 +73,7 @@ namespace MedAdvisor.DataAccess.MySql
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=MedTracker;Trusted_Connection=True;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("default");
         }
     }
 }
