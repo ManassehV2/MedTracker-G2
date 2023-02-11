@@ -73,7 +73,7 @@ namespace MedAdvisor.DataAccess.MySql
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("default");
+            optionsBuilder.UseSqlServer("Data Source=Natnael-PC;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
     }
 }
