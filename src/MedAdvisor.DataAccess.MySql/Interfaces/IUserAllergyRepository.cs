@@ -12,4 +12,3 @@ namespace MedAdvisor.DataAccess.MySql
         bool RemoveAllergies(int userId, List<int> allergies);
     }
 }
-
