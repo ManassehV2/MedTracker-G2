@@ -2,12 +2,12 @@ namespace MedAdvisor.Api;
 
 public class UserDto
 {
-    public UserDto(string username, string password)
+    public UserDto(string Email, string password)
     {
-        this.Username = username;
+        this.Email = Email;
         this.Password = password;
     }
-    public string Username { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 
 }

@@ -27,7 +27,7 @@ public class AuthController : ControllerBase
         byte[] passwordSalt = encoder.Key;
         byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
         
-        user.Username = request.Username;
+        user.Email = request.Email;
         user.Salt = passwordSalt;
         user.HashedPassword = passwordHash;
 
@@ -37,7 +37,7 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public IActionResult login(UserDto request)
     {
-        if (user.Username != request.Username)
+        if (user.Email != request.Email)
             return BadRequest("Invalid Credentials!");
 
         var encoder = new HMACSHA512(user.Salt);
@@ -52,7 +52,7 @@ public class AuthController : ControllerBase
     public string CreateToken(User user)
     {
         List<Claim> claims = new List<Claim>{
-            new Claim(ClaimTypes.Name, user.Username)
+            new Claim(ClaimTypes.Name, user.Email)
         };
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value != "" ? _config.GetSection("AppSettings:JWTToken").Value : "some key which Is strong" ));
