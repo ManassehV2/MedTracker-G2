@@ -7,9 +7,9 @@ namespace MedAdvisor.DataAccess.MySql.Interfaces
     {
         ICollection<Medicine> GetUserMedicines(int id);
 
-        bool AddMedicines(int id, List<Medicine> medicines);
+        bool AddMedicine(int userId, int medicineId);
 
-        bool RemoveMedicine(int id, int medicine_id);
+        bool RemoveMedicines(int userId, List<int> medicines);
     }
 }
 

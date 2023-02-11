@@ -5,8 +5,7 @@ namespace MedAdvisor.DataAccess.MySql.Interfaces
 {
     public interface IDocumentRepository
     {
-
-        ICollection<Document> GetDocuments();
+        ICollection<Document> GetDocuments(string query);
     }
 }
 

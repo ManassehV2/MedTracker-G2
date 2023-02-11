@@ -5,8 +5,7 @@ namespace MedAdvisor.DataAccess.MySql.Interfaces
 {
     public interface IVaccineRepository
     {
-
-        ICollection<Vaccine> GetVaccines();
+        ICollection<Vaccine> GetVaccines(string query);
     }
 }
 

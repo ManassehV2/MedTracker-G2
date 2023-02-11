@@ -18,6 +18,8 @@ namespace MedAdvisor.Models.Models
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+
+        public DateTime CreatedAt { get; set; }
         public enum Gendertypes
         {
             Female,

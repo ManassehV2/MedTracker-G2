@@ -5,8 +5,7 @@ namespace MedAdvisor.DataAccess.MySql.Interfaces
 {
     public interface IMedicineRepository
     {
-
-        ICollection<Medicine> GetMedicines();
+        ICollection<Medicine> GetMedicines(string query);
     }
 }
 
