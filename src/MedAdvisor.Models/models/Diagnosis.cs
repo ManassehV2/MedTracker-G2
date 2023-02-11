@@ -6,7 +6,6 @@ namespace MedAdvisor.Models.Models
     public class Diagnosis
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
@@ -15,6 +14,8 @@ namespace MedAdvisor.Models.Models
         [Required]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
         public string? Code { get; set; }
+
+        public ICollection<UserDiagnosis> UserDiagnoses { get; set; } = null!;
 
     }
 }
