@@ -10,10 +10,8 @@ namespace MedAdvisor.Models.Models
         public byte[] HashedPassword { get; set; }
         public byte[] Salt { get; set; }
 
-        [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
         public string? FirstName { get; set; }
 
-        [StringLength(20, MinimumLength = 4, ErrorMessage = "Must be at least 4 characters long.")]
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
 
@@ -35,7 +33,16 @@ namespace MedAdvisor.Models.Models
         public string TypeOfInsurance { get; set; } = string.Empty;
         public string InsuranceCompany { get; set; } = string.Empty;
         public string AlarmTel { get; set; } = string.Empty;
-        public string EmergencyContacts { get; set; } = string.Empty;
+        public string EmergencyContactName1 { get; set; } = string.Empty;
+        public string EmergencyContactPhone1{ get; set; } = string.Empty;
+        public string EmergencyContactRel1 { get; set; } = string.Empty;
+
+        public string EmergencyContactName2 { get; set; } = string.Empty;
+        public string EmergencyContactPhone2 { get; set; } = string.Empty;
+        public string EmergencyContactRel2 { get; set; } = string.Empty;
+
+
+
         public string Other { get; set; } = string.Empty;
 
         public ICollection<UserAllergy> UserAllergies { get; set; } = null!;

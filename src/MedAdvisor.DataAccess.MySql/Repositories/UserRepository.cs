@@ -43,7 +43,11 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
 
         public bool UpdateUser(int id, User updated_user)
         {
-            _context.Update(updated_user);
+            var existing = GetUser(id);
+            updated_user.HashedPassword = existing.HashedPassword;
+            updated_user.Salt = existing.Salt;
+            _context.Remove(existing);
+            _context.Add(updated_user);
             return Save();
 
         }

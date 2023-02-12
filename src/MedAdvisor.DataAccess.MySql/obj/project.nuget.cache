@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hHQjT1HTPAX71nzhdNOk8IA3aq6lMvz/l9D3x+kTAG1DxTr975uAGvWJlHavljCoD2nlXXBRI7qE3WlItMyPaA==",
+  "dgSpecHash": "yC+tPC+USoSNFd6fbFwHVGj3mFFKFA0s0EOkiAHBW4qU2zi8R5hRh4YqnqtWV+BttuskDUs8Aj/+zF8bNF0aNA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
