@@ -69,7 +69,8 @@ public class AuthController : ControllerBase
     public IActionResult login(UserDto request)
     {
 
-        
+        Console.Write("User");
+        Console.WriteLine(GetUser);
         try {
             if (!_userRepository.Exists(request.Email))
             {
