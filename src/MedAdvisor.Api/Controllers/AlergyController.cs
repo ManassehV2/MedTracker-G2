@@ -17,13 +17,13 @@ namespace MedAdvisor.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Allergy>))]
-        public IActionResult GetAllergy()
-        {
-            var header = Request.Headers["Authentication"];
-            int userid = UserFromToken.getId(header);
+        public IActionResult GetAllergy([FromHeader] string Authorization)
 
+        {
             try
             {
+                int userid = UserFromToken.getId(Authorization);
+
 
                 ICollection<Allergy> result = _repo.GetUserAllergies(userid);
 
@@ -51,7 +51,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult AddAllergy([FromBody] AllergyData data)
+        public IActionResult AddAllergy([FromBody] AllergyData data,[FromHeader] string Authorization)
+
         {
             if (data == null)
             {
@@ -60,7 +61,8 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.AddAllergy(data.id, data.allergyId);
+                int userId = UserFromToken.getId(Authorization);
+                bool result = _repo.AddAllergy(userId, data.allergyId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");
@@ -82,7 +84,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteAllergy([FromBody] AllergyDeleteData dData)
+        public IActionResult DeleteAllergy([FromBody] AllergyDeleteData dData,[FromHeader] string Authorization)
+
         {
             if (dData == null)
             {
@@ -90,7 +93,9 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.RemoveAllergies(dData.id, dData.AllergyId);
+                int userId = UserFromToken.getId(Authorization);
+
+                bool result = _repo.RemoveAllergies(userId, dData.AllergyId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");

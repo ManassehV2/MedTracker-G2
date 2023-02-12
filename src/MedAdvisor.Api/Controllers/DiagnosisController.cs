@@ -17,35 +17,31 @@ namespace MedAdvisor.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Diagnosis>))]
-        public IActionResult GetDiagnosis()
-        {
-            var header = Request.Headers["Authentication"];
-            int userid = UserFromToken.getId(header);
-           
-            
+        public IActionResult GetDiagnosis([FromHeader] string Authorization)
 
+        {
             try
             {
-                
+                int userid = UserFromToken.getId(Authorization);
+
 
                 ICollection<Diagnosis> result = _repo.GetUserDiagnoses(userid);
-                
 
 
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
-                
+
 
                 return Ok(result);
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
-                
+
                 return BadRequest(ModelState);
-               
+
             }
 
         }
@@ -55,15 +51,18 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult AddDiagnosis([FromBody] DiagnosisData data)
+        public IActionResult AddDiagnosis([FromBody] DiagnosisData data, [FromHeader] string Authorization)
+
         {
             if (data == null)
             {
+
                 return BadRequest(ModelState);
             }
             try
             {
-                bool result = _repo.AddDiagnosis(data.id, data.diagnosisId);
+                int userId = UserFromToken.getId(Authorization);
+                bool result = _repo.AddDiagnosis(userId, data.diagnosisId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");
@@ -85,7 +84,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteDiagnosis([FromBody] DiagnosisDeleteData dData)
+        public IActionResult DeleteDiagnosis([FromBody] DiagnosisDeleteData dData, [FromHeader] string Authorization)
+
         {
             if (dData == null)
             {
@@ -93,7 +93,9 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.RemoveDiagnoses(dData.id, dData.diagnosisId);
+                int userId = UserFromToken.getId(Authorization);
+
+                bool result = _repo.RemoveDiagnoses(userId, dData.diagnosisId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");

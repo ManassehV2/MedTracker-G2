@@ -48,29 +48,10 @@ public class AuthController : ControllerBase
         return Ok();
     }
 
-    public int GetUser()
-{
-    var identity = HttpContext.User.Identity as ClaimsIdentity;
-    if (identity != null) 
-    {
-        String userId = identity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value;
-
-        int id = int.Parse(userId);
-        
-        return id;
-    }
-    throw new ApplicationException("User not found");
-
-    }
-
-
 
     [HttpPost("login")]
     public IActionResult login(UserDto request)
     {
-
-        Console.Write("User");
-        Console.WriteLine(GetUser);
         try {
             if (!_userRepository.Exists(request.Email))
             {

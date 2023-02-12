@@ -17,13 +17,13 @@ namespace MedAdvisor.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Vaccine>))]
-        public IActionResult GetVaccine()
-        {
-            var header = Request.Headers["Authentication"];
-            int userid = UserFromToken.getId(header);
+        public IActionResult GetVaccine([FromHeader] string Authorization)
 
+        {
             try
             {
+                int userid = UserFromToken.getId(Authorization);
+
 
                 ICollection<Vaccine> result = _repo.GetUserVaccines(userid);
 
@@ -51,7 +51,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult AddVaccine([FromBody] VaccineData data)
+        public IActionResult AddVaccine([FromBody] VaccineData data, [FromHeader] string Authorization)
+
         {
             if (data == null)
             {
@@ -60,7 +61,8 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.AddVaccine(data.id, data.vaccineId);
+                int userId = UserFromToken.getId(Authorization);
+                bool result = _repo.AddVaccine(userId, data.vaccineId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");
@@ -82,7 +84,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteVaccine([FromBody] VaccineDeleteData dData)
+        public IActionResult DeleteVaccine([FromBody] VaccineDeleteData dData, [FromHeader] string Authorization)
+
         {
             if (dData == null)
             {
@@ -90,7 +93,9 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.RemoveVaccines(dData.id, dData.vaccineId);
+                int userId = UserFromToken.getId(Authorization);
+
+                bool result = _repo.RemoveVaccines(userId, dData.vaccineId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");

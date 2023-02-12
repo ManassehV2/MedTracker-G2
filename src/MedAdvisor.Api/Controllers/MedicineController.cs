@@ -17,13 +17,13 @@ namespace MedAdvisor.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Medicine>))]
-        public IActionResult GetMedicine()
-        {
-            var header = Request.Headers["Authentication"];
-            int userid = UserFromToken.getId(header);
+        public IActionResult GetMedicine([FromHeader] string Authorization)
 
+        {
             try
             {
+                int userid = UserFromToken.getId(Authorization);
+
 
                 ICollection<Medicine> result = _repo.GetUserMedicines(userid);
 
@@ -51,7 +51,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult AddMedicine([FromBody] MedicineData data)
+        public IActionResult AddMedicine([FromBody] MedicineData data, [FromHeader] string Authorization)
+
         {
             if (data == null)
             {
@@ -60,7 +61,8 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.AddMedicine(data.id, data.medicineId);
+                int userId = UserFromToken.getId(Authorization);
+                bool result = _repo.AddMedicine(userId, data.medicineId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");
@@ -82,7 +84,8 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteMedicine([FromBody] MedicineDeleteData dData)
+        public IActionResult DeleteMedicine([FromBody] MedicineDeleteData dData, [FromHeader] string Authorization)
+
         {
             if (dData == null)
             {
@@ -90,7 +93,9 @@ namespace MedAdvisor.Api.Controllers
             }
             try
             {
-                bool result = _repo.RemoveMedicines(dData.id, dData.medicineId);
+                int userId = UserFromToken.getId(Authorization);
+
+                bool result = _repo.RemoveMedicines(userId, dData.medicineId);
                 if (!result)
                 {
                     ModelState.AddModelError("", "bad request");

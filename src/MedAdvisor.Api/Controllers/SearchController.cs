@@ -13,15 +13,13 @@ namespace MedAdvisor.Api.Controllers
         private readonly IMedicineRepository medicine_repo;
         private readonly IVaccineRepository vaccine_repo;
         private readonly IAllergyRepository allergy_repo;
-        private readonly IDocumentRepository document_repo;
         public SearchController(IDiagnosisRepository dia_repo, IMedicineRepository med_repo,
-        IVaccineRepository vac_repo, IAllergyRepository aller_repo, IDocumentRepository doc_repo)
+        IVaccineRepository vac_repo, IAllergyRepository aller_repo)
         {
             diagnosis_repo = dia_repo;
             medicine_repo = med_repo;
             vaccine_repo = vac_repo;
             allergy_repo = aller_repo;
-            document_repo = doc_repo;
         }
 
         [HttpGet("vaccine")]
@@ -102,7 +100,6 @@ namespace MedAdvisor.Api.Controllers
             try
             {
                 ICollection<Allergy> result = allergy_repo.GetAllergies(query);
-
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
@@ -119,28 +116,6 @@ namespace MedAdvisor.Api.Controllers
         }
 
 
-        [HttpGet("document")]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<Document>))]
-        public IActionResult SearchDocument(string query = "")
-        {
-            try
-            {
-                ICollection<Document> result = document_repo.GetDocuments(query);
-
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", ex.Message);
-                return BadRequest(ModelState);
-            }
-
-        }
 
     }
 }
