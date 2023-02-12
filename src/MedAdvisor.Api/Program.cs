@@ -1,5 +1,8 @@
+using AutoMapper;
+using MedAdvisor.Api;
 using MedAdvisor.DataAccess.MySql;
 using MedAdvisor.DataAccess.MySql.Repositories;
+using MedAdvisor.Models.Models;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +25,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MedTrackerContext>(options => options.UseSqlServer("Data Source=Natnael-PC;Initial Catalog=MedTracker;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False", b => b.MigrationsAssembly("MedAdvisor.Api")));
 
+var configuration = new MapperConfiguration(cfg =>
+{
+    cfg.CreateMap<User, UserProfileData>();
+});
+
+configuration.AssertConfigurationIsValid();
+var mapper = configuration.CreateMapper();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 var app = builder.Build();
