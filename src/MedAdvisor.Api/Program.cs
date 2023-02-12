@@ -1,10 +1,17 @@
 using MedAdvisor.DataAccess.MySql;
+using MedAdvisor.DataAccess.MySql.Repositories;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IUserVaccineRepository, UserVaccineRepository>();
+builder.Services.AddScoped<IUserMedicineRepository, UserMedicineRepository>();
+builder.Services.AddScoped<IUserAllergyRepository, UserAllergyRepository>();
+builder.Services.AddScoped<IUserDiagnosisRepository, UserDiagnosisRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

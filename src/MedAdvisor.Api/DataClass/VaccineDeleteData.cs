@@ -1,8 +1,8 @@
 namespace MedAdvisor.Api.DataClass
 {
-    public class DiagnosisData
+    public class VaccineDeleteData
     {
         public int id { get; set; }
-        public int diagnosisId { get; set; }
+        public List<int> vaccineId { get; set; }
     }
 }

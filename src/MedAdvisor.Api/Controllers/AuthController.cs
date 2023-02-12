@@ -24,42 +24,80 @@ public class AuthController : ControllerBase
         _userRepository = userRepository;
     }
 
-    [HttpPost("signup")]
-    public IActionResult signup(UserDto request)
-    {
+    public User createUserDto(UserDto request){
         var encoder = new HMACSHA512();
         byte[] passwordSalt = encoder.Key;
         byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-        var newUser = new User();
+        var newUser = new User(){
+            Email = request.Email,
+            HashedPassword = passwordHash,
+            Salt = passwordSalt
+        };
 
-        newUser.Email = request.Email;
-        newUser.Salt = passwordSalt;
-        newUser.HashedPassword = passwordHash;
+        return newUser;
+    }
+
+
+    [HttpPost("signup")]
+    public IActionResult signup(UserDto request)
+    {
+        var newUser = createUserDto(request);
+
         _userRepository.CreateUser(newUser);
-
 
         return Ok();
     }
 
-    // [HttpPost("login")]
-    // public IActionResult login(UserDto request)
-    // {
-    //     if (user.Email != request.Email)
-    //         return BadRequest("Invalid Credentials!");
+    public int GetUser()
+{
+    var identity = HttpContext.User.Identity as ClaimsIdentity;
+    if (identity != null) 
+    {
+        String userId = identity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value;
 
-    //     var encoder = new HMACSHA512(user.Salt);
-    //     var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-    //     if (!computedHash.SequenceEqual(user.HashedPassword))
-    //         return BadRequest("Invalid Credentials!");
+        int id = int.Parse(userId);
+        
+        return id;
+    }
+    throw new ApplicationException("User not found");
+
+    }
+
+
+
+    [HttpPost("login")]
+    public IActionResult login(UserDto request)
+    {
 
         
-    //     return Ok(CreateToken(user));
-    // }
+        try {
+            if (!_userRepository.Exists(request.Email))
+            {
+                var newUser = createUserDto(request);
+                _userRepository.CreateUser(newUser);
 
-    public string CreateToken(User user)
+            }
+
+            var user = _userRepository.GetUserByEmail(request.Email);
+
+            var encoder = new HMACSHA512(user.Salt);
+            var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
+            if (!computedHash.SequenceEqual(user.HashedPassword))
+                return BadRequest("Invalid Credentials!");
+
+
+            return Ok(CreateToken(user));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        
+    }
+
+     string CreateToken(User user)
     {
         List<Claim> claims = new List<Claim>{
-            new Claim(ClaimTypes.Name, user.Email)
+            new Claim(ClaimTypes.Name, user.Id.ToString())
         };
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value != "" ? _config.GetSection("AppSettings:JWTToken").Value : "some key which Is strong" ));
@@ -75,5 +113,5 @@ public class AuthController : ControllerBase
 
         return jwtToken;
     }
-
+    }
 }
