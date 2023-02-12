@@ -1,82 +1,92 @@
-// using System;
-// using System.IO;
-// using Microsoft.AspNetCore.Mvc;
-// using CloudinaryDotNet;
-// using CloudinaryDotNet.Actions;
-// using Microsoft.Extensions.Configuration;
-// using System.Threading.Tasks;
-// using MedAdvisor.DataAccess.MySql;
-// using MedAdvisor.Models.Models;
+using System;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
+using MedAdvisor.DataAccess.MySql;
+using MedAdvisor.Models.Models;
+using MedAdvisor.Api.DataClass;
+using static MedAdvisor.Models.Models.Document;
 
-// namespace MedAdvisor.Api.Controllers
-// {
-//     [Route("api/[controller]")]
-//     [ApiController]
-//     public class DocumentUploadController : ControllerBase
-//     {
-//         private readonly IConfiguration _configuration;
-//         private readonly MedTrackerContext _dbContext;
-
-//         public DocumentUploadController(IConfiguration configuration, MedTrackerContext dbContext)
-//         {
-//             _configuration = configuration;
-//             _dbContext = dbContext;
-//         }
-
-//         [HttpPost]
-//         public async Task<IActionResult> UploadFile(IFormFile file)
-//         {
-//             Console.WriteLine("Start upload file");
-
-//             var account = new Account(
-//                 // _configuration["Cloudinary:dujpujpzk"],
-//                 // _configuration["Cloudinary:935925156256877"],
-//                 // _configuration["Cloudinary:0p2086y4v1UGju29GhXJlDTQgQ0"]
-//                 "dujpujpzk",
-//                 "935925156256877",
-//                 "0p2086y4v1UGju29GhXJlDTQgQ0"
+namespace MedAdvisor.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DocumentController : ControllerBase
+    {
+        private readonly IConfiguration _configuration;
+        private readonly IDocumentRepository _repository;
 
 
-//             );
+        public DocumentController(IConfiguration configuration, IDocumentRepository repository)
+        {
+            _configuration = configuration;
+            _repository = repository;
 
-//             var cloudinary = new Cloudinary(account);
+        }
 
-//             var fileStream = file.OpenReadStream();
-//             var fileName = file.FileName;
-//             Console.Write(fileStream);
-//             Console.WriteLine(fileName);
+        [HttpPost]
+        public async Task<IActionResult> UploadFile(IFormFile file,DocumentData documentData,[FromHeader] string Authorization)
+        {
+            try {
+                Console.Write(file.Length);
+                var account = new Account(
+                _configuration.GetSection("CloudinarySettings:CloudName").Value,
+                _configuration.GetSection("CloudinarySettings:CloudName").Value,
+                _configuration.GetSection("CloudinarySettings:CloudName").Value
+            );
 
-//             var uploadParams = new ImageUploadParams()
-//             {
-//                 File = new FileDescription(fileName, fileStream),
-//                 // Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face")
-//             };
-//             Console.Write(uploadParams);
+                var cloudinary = new Cloudinary(account);
+
+                var fileStream = file.OpenReadStream();
+                var fileName = file.FileName;
+
+
+                var uploadParams = new RawUploadParams()
+                {
+                    File = new FileDescription(fileName, fileStream),
+                };
 
 
 
-//             var uploadResult = await cloudinary.UploadAsync(uploadParams);
-//             Console.Write(uploadResult.SecureUrl);
+                var uploadResult = await cloudinary.UploadAsync(uploadParams);
+                Console.Write(uploadResult.SecureUrl);
 
-            
 
-//             if (uploadResult.Error == null)
-//             {
-//                 var fileRecord = new FileContent
-//                 {
-//                     FileName = uploadResult.SecureUri.AbsoluteUri
-//                 };
-//                 Console.Write(fileRecord.FileName);
+                int userid = UserFromToken.getId(Authorization);
 
-//                 _dbContext.Files.Add(fileRecord);
-//                 await _dbContext.SaveChangesAsync();
+                if (uploadResult.Error == null)
+                {
+                    var createdDocument = new Document
+                    {
+                        FileName = uploadResult.SecureUri.AbsoluteUri,
+                        Title = documentData.title,
+                        UserId = userid,
+                        Type = documentData.type,
+                        Description = documentData.description
+                    };
 
-//                 return Ok();
-//             }
-//             else
-//             {
-//                 return BadRequest(uploadResult.Error.Message);
-//             }
-//         }
-//     }
-// }
+                    Console.Write(createdDocument.FileName);
+
+                    _repository.Create(createdDocument);
+
+
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest(uploadResult.Error.Message);
+                }
+
+            } catch (Exception ex) {
+
+            return BadRequest(ex.Message);
+
+            }
+    }
+}
+
+
+}

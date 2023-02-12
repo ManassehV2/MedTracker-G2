@@ -9,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.MaxRequestBodySize = int.MaxValue;
+});
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<IVaccineRepository, VaccineRepository>();
 builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
 builder.Services.AddScoped<IAllergyRepository, AllergyRepository>();
@@ -25,13 +29,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MedTrackerContext>(options => options.UseSqlServer("Data Source=Natnael-PC;Initial Catalog=MedTracker;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False", b => b.MigrationsAssembly("MedAdvisor.Api")));
 
-var configuration = new MapperConfiguration(cfg =>
-{
-    cfg.CreateMap<User, UserProfileData>();
-});
-
-configuration.AssertConfigurationIsValid();
-var mapper = configuration.CreateMapper();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 

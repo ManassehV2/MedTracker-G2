@@ -33,6 +33,9 @@ public class UserController : ControllerBase
             int userId = UserFromToken.getId(Authorization);
             var user = _userRepository.GetUser(userId);
             // UserProfileData userMap = _mapper.Map<UserProfileData>(_userRepository.GetUser(userId));
+            Console.WriteLine(userId);
+            Console.WriteLine(user);
+
 
             if (user == null)
             {
