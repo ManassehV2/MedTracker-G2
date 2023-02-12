@@ -1,11 +1,16 @@
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using MedAdvisor.Models.Models;
+using System.Security.Cryptography;
 
 namespace MedAdvisor.DataAccess.MySql
 {
     public class MedTrackerContext : DbContext
     {
+
+        public MedTrackerContext(DbContextOptions<MedTrackerContext> options): base(options){}
+
+
         public DbSet<User> Users { get; set; }
         public DbSet<Allergy> Allergies { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
@@ -20,6 +25,88 @@ namespace MedAdvisor.DataAccess.MySql
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            var encoder = new HMACSHA512();
+            byte[] passwordSalt = encoder.Key;
+            byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Password"));
+            modelBuilder.Entity<User>()
+            .HasData(new User()
+            {
+                Id = -1,
+                Email = "Henok@gmail.com",
+                HashedPassword = passwordHash,
+                Salt = passwordSalt,
+                FirstName = "Henok",
+                LastName = "Matheas"
+
+            }
+            );
+
+            modelBuilder.Entity<Allergy>()
+            .HasData(new Allergy()
+            {
+                Id = 1,
+                Name = "Egg Yolk",
+                Code = "WMCX0018",
+            },
+            new Allergy()
+            {
+                Id = 2,
+                Name = "DATE",
+                Code = "WMCX0015",
+            }
+
+            );
+
+
+            modelBuilder.Entity<Diagnosis>()
+            .HasData(new Diagnosis()
+            {
+                Id = 1,
+                Name = "Cholera, unspecified",
+
+                Code = "A009",
+            },
+            new Diagnosis()
+            {
+                Id = 2,
+                Name = "Paratyphoid fever C",
+                Code = "A013",
+            }
+            );
+
+            modelBuilder.Entity<Vaccine>()
+            .HasData(new Vaccine()
+            {
+                Id = 1,
+                Name = "Anthrax",
+
+                Code = "24",
+            },
+            new Vaccine()
+            {
+                Id = 2,
+                Name = "dengue fever",
+                Code = "56",
+            }
+            );
+
+
+                modelBuilder.Entity<Medicine>()
+           .HasData(new Medicine()
+           {
+               Id = 1,
+               Name = "Etanercept",
+
+               Code = "L04AA11",
+           },
+           new Medicine()
+           {
+               Id = 2,
+               Name = "Trovast",
+               Code = "C10AA05",
+           }
+           );
 
             modelBuilder.Entity<UserMedicine>()
                     .HasKey(ua => new { ua.UserId, ua.MedicineId });
@@ -71,9 +158,5 @@ namespace MedAdvisor.DataAccess.MySql
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=Natnael-PC;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        }
     }
 }

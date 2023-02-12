@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xlN/m3HHnB5j4h7tcqE3/b2SrkZbZL95rWSbSECXpZah/lt+/sBnMuoDpaV3hIgGxRFDXgie5r+p3PiFE/0PGA==",
+  "dgSpecHash": "f5BV2JYtnHFGaQ7E0NNKju6C8Y7Hplfo+sZmcbexzScEi+LWAR+uOnHLuKU+/CKEaUVdovnPVK2fpV0v0Mi8jw==",
   "success": true,
-  "projectFilePath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
