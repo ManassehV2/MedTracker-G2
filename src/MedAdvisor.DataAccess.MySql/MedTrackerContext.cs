@@ -17,6 +17,7 @@ namespace MedAdvisor.DataAccess.MySql
         public DbSet<Vaccine> Vaccines { get; set; }
         public DbSet<Diagnosis> Diagnosis { get; set; }
         public DbSet<Document> Documents { get; set; }
+        // public DbSet<FileContent> Files { get; set; }
 
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<UserMedicine> UserMedicines { get; set; }
@@ -39,6 +40,26 @@ namespace MedAdvisor.DataAccess.MySql
                 FirstName = "Henok",
                 LastName = "Matheas"
 
+            },
+            new User()
+            {
+                Id = 2,
+                Email = "Naty@gmail.com",
+                HashedPassword = passwordHash,
+                Salt = passwordSalt,
+                FirstName = "Nathnael",
+                LastName = "Tadele"
+
+            },
+            new User()
+            {
+                Id = 3,
+                Email = "Feven@gmail.com",
+                HashedPassword = passwordHash,
+                Salt = passwordSalt,
+                FirstName = "Feven",
+                LastName = "Belay"
+
             }
             );
 
@@ -53,9 +74,38 @@ namespace MedAdvisor.DataAccess.MySql
             {
                 Id = 2,
                 Name = "DATE",
+                Code = "WMCX0013",
+            },
+            new Allergy()
+            {
+                Id = 3,
+                Name = "Grape",
                 Code = "WMCX0015",
+            },
+            new Allergy()
+            {
+                Id = 4,
+                Name = "Apple",
+                Code = "WMCX0020",
+            },
+            new Allergy()
+            {
+                Id = 5,
+                Name = "pea",
+                Code = "WMCX0021",
+            },
+            new Allergy()
+            {
+                Id = 6,
+                Name = "Rat",
+                Code = "WMCX0007",
+            },
+            new Allergy()
+            {
+                Id = 7,
+                Name = "Kemiri nut",
+                Code = "WMCX0011",
             }
-
             );
 
 
@@ -64,7 +114,6 @@ namespace MedAdvisor.DataAccess.MySql
             {
                 Id = 1,
                 Name = "Cholera, unspecified",
-
                 Code = "A009",
             },
             new Diagnosis()
@@ -72,24 +121,83 @@ namespace MedAdvisor.DataAccess.MySql
                 Id = 2,
                 Name = "Paratyphoid fever C",
                 Code = "A013",
+            },
+            new Diagnosis()
+            {
+                Id = 3,
+                Name = "Localized salmonella infections",
+                Code = "A022",
+            },
+            new Diagnosis()
+            {
+                Id = 4,
+                Name = "Bacterial intestinal infection, unspecified",
+                Code = "A049",
+            },
+            new Diagnosis()
+            {
+                Id = 5,
+                Name = "Acute amoebic dysentery",
+                Code = "A060",
+            },
+            new Diagnosis()
+            {
+                Id = 6,
+                Name = "Foodborne Vibrio parahaemolyticus intoxication",
+                Code = "A053",
+            },
+            new Diagnosis()
+            {
+                Id = 7,
+                Name = "Amoebic liver abscess",
+                Code = "A064",
             }
             );
 
             modelBuilder.Entity<Vaccine>()
-            .HasData(new Vaccine()
-            {
-                Id = 1,
-                Name = "Anthrax",
-
-                Code = "24",
-            },
-            new Vaccine()
-            {
-                Id = 2,
-                Name = "dengue fever",
-                Code = "56",
-            }
-            );
+           .HasData(new Vaccine()
+           {
+               Id = 1,
+               Name = "Anthrax",
+               Code = "24",
+           },
+           new Vaccine()
+           {
+               Id = 2,
+               Name = "dengue fever",
+               Code = "56",
+           },
+           new Vaccine()
+           {
+               Id = 3,
+               Name = "botulinum antitoxin",
+               Code = "27",
+           },
+           new Vaccine()
+           {
+               Id = 4,
+               Name = "DTAP-Hib",
+               Code = "50",
+           },
+           new Vaccine()
+           {
+               Id = 5,
+               Name = "Moderna COVID-19",
+               Code = "221",
+           },
+           new Vaccine()
+           {
+               Id = 6,
+               Name = "DTaP",
+               Code = "20",
+           },
+           new Vaccine()
+           {
+               Id = 7,
+               Name = "cholera, unspecified formulation",
+               Code = "26",
+           }
+           );
 
 
             modelBuilder.Entity<Medicine>()
@@ -97,7 +205,6 @@ namespace MedAdvisor.DataAccess.MySql
        {
            Id = 1,
            Name = "Etanercept",
-
            Code = "L04AA11",
        },
        new Medicine()
@@ -105,6 +212,36 @@ namespace MedAdvisor.DataAccess.MySql
            Id = 2,
            Name = "Trovast",
            Code = "C10AA05",
+       },
+       new Medicine()
+       {
+           Id = 3,
+           Name = "Jeprolol",
+           Code = "C07AB02",
+       },
+       new Medicine()
+       {
+           Id = 4,
+           Name = "Pinex Major",
+           Code = "N02AA59",
+       },
+       new Medicine()
+       {
+           Id = 5,
+           Name = "Cardizem inj",
+           Code = "H02AB10",
+       },
+       new Medicine()
+       {
+           Id = 6,
+           Name = "Zarator",
+           Code = "c10AA05",
+       },
+       new Medicine()
+       {
+           Id = 7,
+           Name = "Esomerprazole",
+           Code = "A02BC05",
        }
        );
 
