@@ -17,7 +17,6 @@ namespace MedAdvisor.DataAccess.MySql
         public DbSet<Vaccine> Vaccines { get; set; }
         public DbSet<Diagnosis> Diagnosis { get; set; }
         public DbSet<Document> Documents { get; set; }
-        public DbSet<FileContent> Files { get; set; }
 
         public DbSet<UserAllergy> UserAllergies { get; set; }
         public DbSet<UserMedicine> UserMedicines { get; set; }
@@ -291,6 +290,8 @@ namespace MedAdvisor.DataAccess.MySql
                     .HasOne(a => a.Allergy)
                     .WithMany(ua => ua.UserAllergies)
                     .HasForeignKey(a => a.AllergyId);
+
+           
 
 
         }
