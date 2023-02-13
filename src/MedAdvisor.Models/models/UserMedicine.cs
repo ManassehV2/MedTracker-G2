@@ -5,9 +5,9 @@ namespace MedAdvisor.Models.Models
         public int UserId { get; set; }
         public int MedicineId { get; set; }
 
-        public User User { get; set; }
+        public User? User { get; set; }
 
-        public Medicine Medicine { get; set; }
+        public Medicine? Medicine { get; set; }
 
     }
 }

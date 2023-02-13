@@ -5,9 +5,9 @@ namespace MedAdvisor.Models.Models
         public int UserId { get; set; }
         public int DiagnosisId { get; set; }
 
-        public User User { get; set; }
+        public User? User { get; set; }
 
-        public Diagnosis Diagnosis { get; set; }
+        public Diagnosis? Diagnosis { get; set; }
 
     }
 }
