@@ -9,7 +9,8 @@ namespace MedAdvisor.DataAccess.MySql
 
         bool Update(Document document);
 
-        bool Delete(Document document);
+        bool Delete(int UserId, int DocumentId);
+
 
         ICollection<Document> GetMyDocuments(int userId);
 

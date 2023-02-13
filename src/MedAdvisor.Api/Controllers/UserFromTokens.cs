@@ -7,7 +7,7 @@ namespace MedAdvisor.Api.Controllers
     {
         public static int getId(string token)
         {
-            // Console.WriteLine(token);
+            // 
             var streamList = token.Split(" ").ToList();
             string stream;
          
@@ -21,18 +21,20 @@ namespace MedAdvisor.Api.Controllers
                 stream = streamList[streamList.Count - 1];
             }
         
-            Console.WriteLine(stream);
+            
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
             if (tokenS == null){
                 throw new ApplicationException("Invalid token");
             }
-
-            var jti = tokenS.Claims.First(claim => claim.Type == ClaimTypes.Name).Value;
+            
+            
+            var jti = tokenS.Claims.First(claim => claim.Type.ToString() == ClaimTypes.Name.ToString()).Value;
+            
 
             int userId = int.Parse(jti);
-            Console.WriteLine(userId);
+            
             return userId;
 
         }

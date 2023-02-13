@@ -23,16 +23,23 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
             return created;
         }
 
-        public bool Delete(Document document)
-        {
-            _context.Documents.Remove(document);
-            Save();
-            return true;
+        public bool Delete(int userId, int documentId)
+
+        {   
+            try {
+                var document = _context.Documents.Where(doc => doc.Id == documentId && doc.UserId == userId).FirstOrDefault();
+                _context.Documents.Remove(document);
+                return Save();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public Document GetById(int id)
         {
-            return _context.Documents.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Documents.Where(x => x.Id == id).FirstOrDefault()!;
         }
 
         public ICollection<Document> GetMyDocuments(int userId)
@@ -46,7 +53,6 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
 
             _context.Remove(oldDoc);
             _context.Add(document);
-
 
             return Save();
         }
