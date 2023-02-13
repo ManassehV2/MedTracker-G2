@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj": {}
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.DataAccess.MySql/MedAdvisor.DataAccess.MySql.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj": {
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.DataAccess.MySql/MedAdvisor.DataAccess.MySql.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj",
+        "projectUniqueName": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.DataAccess.MySql/MedAdvisor.DataAccess.MySql.csproj",
         "projectName": "MedAdvisor.DataAccess.MySql",
-        "projectPath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\obj\\",
+        "projectPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.DataAccess.MySql/MedAdvisor.DataAccess.MySql.csproj",
+        "packagesPath": "/home/henok/.nuget/packages/",
+        "outputPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.DataAccess.MySql/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/henok/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {
-                "projectPath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj"
+              "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {
+                "projectPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj"
               }
             }
           }
@@ -87,8 +85,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -97,28 +94,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
+        "projectUniqueName": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
         "projectName": "MedAdvisor.Models",
-        "projectPath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\obj\\",
+        "projectPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+        "packagesPath": "/home/henok/.nuget/packages/",
+        "outputPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/henok/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -142,8 +137,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -152,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
         }
       }
     }
