@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {}
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {}
   },
   "projects": {
-    "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+        "projectUniqueName": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
         "projectName": "MedAdvisor.Models",
-        "projectPath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
-        "packagesPath": "/Users/minase/.nuget/packages/",
-        "outputPath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/obj/",
+        "projectPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+        "packagesPath": "/home/henok/.nuget/packages/",
+        "outputPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/minase/.nuget/NuGet/NuGet.Config"
+          "/home/henok/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
         }
       }
     }

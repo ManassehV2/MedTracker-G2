@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4TSk8+Yvd7RxepkuBZQR55qlL2LNq/WVrUEmhQDGA97fq6DreV1EN7mbnQVBjauaNqqwHWQE4uX75Ecvunr2tA==",
+  "dgSpecHash": "xlN/m3HHnB5j4h7tcqE3/b2SrkZbZL95rWSbSECXpZah/lt+/sBnMuoDpaV3hIgGxRFDXgie5r+p3PiFE/0PGA==",
   "success": true,
-  "projectFilePath": "/Users/minase/Desktop/Workspace/AppDevClass/MedAdvisorAPIG1/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+  "projectFilePath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
