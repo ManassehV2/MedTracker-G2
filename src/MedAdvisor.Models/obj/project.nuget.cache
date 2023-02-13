@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xlN/m3HHnB5j4h7tcqE3/b2SrkZbZL95rWSbSECXpZah/lt+/sBnMuoDpaV3hIgGxRFDXgie5r+p3PiFE/0PGA==",
+  "dgSpecHash": "VYdqPSWKkKYFzVaDmbDNFxaJsK/vgwJpiTa97UVt4pg+UogwHHJm1TsWVAl56DHlGoups43niedme81ymGLcQg==",
   "success": true,
-  "projectFilePath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

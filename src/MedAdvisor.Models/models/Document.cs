@@ -8,7 +8,7 @@ namespace MedAdvisor.Models.Models
 
         public int UserId { get; set; }
 
-        public User? User { get; set; }
+        public User User { get; set; } = null!;
 
         [Required]
         public string? Title { get; set; }
@@ -26,7 +26,7 @@ namespace MedAdvisor.Models.Models
             Other
         }
         public Documenttypes Type { get; set; }
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } 
         public string FileName { get; set; } = null!;
     }
 }
