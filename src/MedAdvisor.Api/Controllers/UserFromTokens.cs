@@ -3,5 +3,8 @@ using System.Security.Claims;
 
 namespace MedAdvisor.Api.Controllers
 {
-    
+    public class UserFromToken
+    {
+        
+    }
 }
