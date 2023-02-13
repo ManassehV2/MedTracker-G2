@@ -86,9 +86,23 @@ namespace MedAdvisor.Api.Controllers
             return uploadResult.SecureUri.AbsoluteUri;
 
     }
-
-
     
+    [HttpGet]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    public IActionResult Get([FromHeader] string Authorization)
+    {
+        try {
+            int userid = UserFromToken.getId(Authorization);
+            var documents = _repository.GetMyDocuments(userid);
+            return Ok(documents);
+        }
+        catch (Exception ex) {
+            return BadRequest(ex.Message);
+        }
+        
+    }
 
     }
 }
