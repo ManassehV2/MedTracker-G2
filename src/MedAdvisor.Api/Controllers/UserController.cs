@@ -23,6 +23,7 @@ public class UserController : ControllerBase
         _userRepository = userRepository;
         _mapper = mapper;
     }
+
     [HttpGet]
 
     public IActionResult getUser([FromHeader] string Authorization)
@@ -48,6 +49,7 @@ public class UserController : ControllerBase
 
         }
     }
+
     [HttpPatch]
     public IActionResult updateUser(UserProfileData profile, [FromHeader] string Authorization)
     {
@@ -108,8 +110,4 @@ public class UserController : ControllerBase
 
         }
     }
-
-
-    
-    
 }
