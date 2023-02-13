@@ -48,6 +48,12 @@ public class UserController : ControllerBase
 
         }
     }
+    [HttpPatch]
+    public IActionResult updateUser(UserProfileData profile, [FromHeader] string Authorization)
+    {
+        
+    }
+
 
     
     
