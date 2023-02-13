@@ -37,7 +37,6 @@ public class AuthController : ControllerBase
         return newUser;
     }
 
-
     [HttpPost("signup")]
     public IActionResult signup(UserDto request)
     {
@@ -46,6 +45,33 @@ public class AuthController : ControllerBase
         _userRepository.CreateUser(newUser);
 
         return Ok();
+    }
+    
+    [HttpPost("login")]
+    public IActionResult login(UserDto request)
+    {
+        try {
+            if (!_userRepository.Exists(request.Email))
+            {
+                var newUser = createUserDto(request);
+                _userRepository.CreateUser(newUser);
+
+            }
+
+            var user = _userRepository.GetUserByEmail(request.Email);
+
+            var encoder = new HMACSHA512(user.Salt);
+            var computedHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
+            if (!computedHash.SequenceEqual(user.HashedPassword))
+                return BadRequest("Invalid Credentials!");
+
+
+            return Ok(CreateToken(user));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        
     }
 
      string CreateToken(User user)
