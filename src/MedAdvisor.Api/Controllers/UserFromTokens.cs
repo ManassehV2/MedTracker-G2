@@ -20,6 +20,17 @@ namespace MedAdvisor.Api.Controllers
             else{
                 stream = streamList[streamList.Count - 1];
             }
+
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(stream);
+            var tokenS = jsonToken as JwtSecurityToken;
+            if (tokenS == null){
+                throw new ApplicationException("Invalid token");
+            }
+            
+            
+           
+
         
             
             
