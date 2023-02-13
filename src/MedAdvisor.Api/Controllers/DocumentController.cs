@@ -153,6 +153,26 @@ namespace MedAdvisor.Api.Controllers
             return BadRequest(ex.Message);
         }
     }
+    
+    [HttpGet("{documentId}")]
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+
+        public async Task<IActionResult> GetById([FromHeader] string Authorization, int documentId)
+    {
+            try
+            {
+                int userId = UserFromToken.getId(Authorization);
+
+                var document = _repository.GetById(documentId);
+                return Ok(document);
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+    }
 
     }
 }
