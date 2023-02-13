@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace MedAdvisor.Models.Models
 {
     public class UserAllergy
@@ -11,6 +8,5 @@ namespace MedAdvisor.Models.Models
         public User? User { get; set; }
 
         public Allergy? Allergy { get; set; }
-
     }
 }

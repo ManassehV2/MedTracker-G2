@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedAdvisor.Models.Models
 {
@@ -29,7 +28,5 @@ namespace MedAdvisor.Models.Models
         public Documenttypes Type { get; set; }
         public string Description { get; set; } = string.Empty;
         public string FileName { get; set; } = null!;
-
-    
     }
 }

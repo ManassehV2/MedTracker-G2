@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MedAdvisor.Models.Models
 {
@@ -14,6 +13,5 @@ namespace MedAdvisor.Models.Models
         public string? Code { get; set; }
 
         public ICollection<UserVaccine> UserVaccines { get; set; } = null!;
-
     }
 }

@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace MedAdvisor.Models.Models
 {
     public class User
@@ -34,14 +31,12 @@ namespace MedAdvisor.Models.Models
         public string InsuranceCompany { get; set; } = string.Empty;
         public string AlarmTel { get; set; } = string.Empty;
         public string EmergencyContactName1 { get; set; } = string.Empty;
-        public string EmergencyContactPhone1{ get; set; } = string.Empty;
+        public string EmergencyContactPhone1 { get; set; } = string.Empty;
         public string EmergencyContactRel1 { get; set; } = string.Empty;
 
         public string EmergencyContactName2 { get; set; } = string.Empty;
         public string EmergencyContactPhone2 { get; set; } = string.Empty;
         public string EmergencyContactRel2 { get; set; } = string.Empty;
-
-
 
         public string Other { get; set; } = string.Empty;
 

@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {}
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {
+    "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
+        "projectUniqueName": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
         "projectName": "MedAdvisor.Models",
-        "projectPath": "c:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj",
-        "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Hp\\Videos\\MedTracker-G2\\src\\MedAdvisor.Models\\obj\\",
+        "projectPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/MedAdvisor.Models.csproj",
+        "packagesPath": "/home/henok/.nuget/packages/",
+        "outputPath": "/home/henok/Desktop/Training/MedTracker-G2/src/MedAdvisor.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/henok/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,8 +43,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -55,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.113/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -8,6 +8,5 @@ namespace MedAdvisor.Models.Models
         public User? User { get; set; }
 
         public Medicine? Medicine { get; set; }
-
     }
 }
