@@ -78,7 +78,38 @@ namespace MedAdvisor.Api.Controllers
 
 
         }
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult DeleteAllergy([FromBody] AllergyDeleteData dData,[FromHeader] string Authorization)
 
-        
+        {
+            if (dData == null)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                int userId = UserFromToken.getId(Authorization);
+
+                bool result = _repo.RemoveAllergies(userId, dData.AllergyId);
+                if (!result)
+                {
+                    ModelState.AddModelError("", "bad request");
+                    return BadRequest(ModelState);
+
+                }
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return BadRequest(ModelState);
+
+            }
+        }
+    
         }
 }
