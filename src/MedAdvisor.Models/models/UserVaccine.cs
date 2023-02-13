@@ -5,8 +5,8 @@ namespace MedAdvisor.Models.Models
         public int UserId { get; set; }
         public int VaccineId { get; set; }
 
-        public User? User { get; set; }
+        public User User { get; set; } = null!;
 
-        public Vaccine? Vaccine { get; set; }
+        public Vaccine Vaccine { get; set; } = null!;
     }
 }

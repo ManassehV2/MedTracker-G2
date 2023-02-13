@@ -3,9 +3,9 @@ namespace MedAdvisor.Models.Models
     public class User
     {
         public int Id { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public byte[]? HashedPassword { get; set; }
-        public byte[]? Salt { get; set; }
+        public string Email { get; set; } = null!;
+        public byte[] HashedPassword { get; set; } = null!;
+        public byte[] Salt { get; set; } = null!;
 
         public string? FirstName { get; set; }
 
@@ -19,26 +19,26 @@ namespace MedAdvisor.Models.Models
             Male
         }
         public Gendertypes Gender { get; set; }
-        public string Ssn { get; set; } = string.Empty;
-        public string Nationality { get; set; } = string.Empty;
-        public string Telephone { get; set; } = string.Empty;
+        public string? Ssn { get; set; } 
+        public string? Nationality { get; set; } 
+        public string? Telephone { get; set; } 
         public bool OrganDonor { get; set; }
-        public string Postnr { get; set; } = string.Empty;
-        public string City { get; set; } = string.Empty;
-        public string Land { get; set; } = string.Empty;
-        public string StreetAddress { get; set; } = string.Empty;
-        public string TypeOfInsurance { get; set; } = string.Empty;
-        public string InsuranceCompany { get; set; } = string.Empty;
-        public string AlarmTel { get; set; } = string.Empty;
-        public string EmergencyContactName1 { get; set; } = string.Empty;
-        public string EmergencyContactPhone1 { get; set; } = string.Empty;
-        public string EmergencyContactRel1 { get; set; } = string.Empty;
+        public string? Postnr { get; set; } 
+        public string? City { get; set; } 
+        public string? Land { get; set; } 
+        public string? StreetAddress { get; set; } 
+        public string? TypeOfInsurance { get; set; } 
+        public string? InsuranceCompany { get; set; } 
+        public string? AlarmTel { get; set; } 
+        public string? EmergencyContactName1 { get; set; } 
+        public string? EmergencyContactPhone1 { get; set; } 
+        public string? EmergencyContactRel1 { get; set; } 
 
-        public string EmergencyContactName2 { get; set; } = string.Empty;
-        public string EmergencyContactPhone2 { get; set; } = string.Empty;
-        public string EmergencyContactRel2 { get; set; } = string.Empty;
+        public string? EmergencyContactName2 { get; set; } 
+        public string? EmergencyContactPhone2 { get; set; } 
+        public string? EmergencyContactRel2 { get; set; } 
 
-        public string Other { get; set; } = string.Empty;
+        public string? Other { get; set; } 
 
         public ICollection<UserAllergy> UserAllergies { get; set; } = null!;
 
