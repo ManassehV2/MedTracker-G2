@@ -45,6 +45,41 @@ namespace MedAdvisor.Api.Controllers
             }
 
         }
+        
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult AddMedicine([FromBody] MedicineData data, [FromHeader] string Authorization)
+
+        {
+            if (data == null)
+            {
+
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                int userId = UserFromToken.getId(Authorization);
+                bool result = _repo.AddMedicine(userId, data.medicineId);
+                if (!result)
+                {
+                    ModelState.AddModelError("", "bad request");
+                    return BadRequest(ModelState);
+                }
+                return Ok("Successfully added");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return BadRequest(ModelState);
+
+            }
+
+
+        }
+
+        
 
 
         
