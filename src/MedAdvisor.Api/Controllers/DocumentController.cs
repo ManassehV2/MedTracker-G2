@@ -123,6 +123,36 @@ namespace MedAdvisor.Api.Controllers
         }
 
     }
+    
+    [HttpPatch("{documentId}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(201)]
+    [ProducesResponseType(400)]
+    public async Task<IActionResult> UpdateDocument([FromHeader] string Authorization,[FromForm] DocumentData document,int documentId)
+
+    {
+        try {
+
+            int userId = UserFromToken.getId(Authorization);
+
+            var uploadResult = await CloudinaryUploadFile(document);
+
+            var exsistingDocument = new Models.Models.Document
+            {
+                Id = documentId,
+                FileName = uploadResult.ToString(),
+                Title = document.title,
+                UserId = userId,
+                Type = document.type,
+                Description = document.description!
+            };
+            _repository.Update(exsistingDocument);
+            return Ok("Document updated successfully");
+
+        } catch (Exception ex) {
+            return BadRequest(ex.Message);
+        }
+    }
 
     }
 }
