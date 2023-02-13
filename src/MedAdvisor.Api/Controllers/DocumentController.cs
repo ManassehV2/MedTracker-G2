@@ -103,6 +103,26 @@ namespace MedAdvisor.Api.Controllers
         }
         
     }
+    
+    [HttpDelete("{documentId}")]
+
+    [ProducesResponseType(204)]
+    [ProducesResponseType(400)]
+
+    public IActionResult Delete([FromHeader] string Authorization,int documentId)
+    {
+        try {
+            int userId = UserFromToken.getId(Authorization);
+            Console.Write(documentId);
+            var deleted = _repository.Delete(userId,documentId);
+            return deleted ? Ok("Document deleted successfully") : throw new Exception("Document not deleted");
+
+        } catch (Exception ex) {
+            return BadRequest(ex.Message);
+
+        }
+
+    }
 
     }
 }
