@@ -20,7 +20,8 @@ namespace MedAdvisor.Api.Controllers
             else{
                 stream = streamList[streamList.Count - 1];
             }
-
+        
+            
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(stream);
             var tokenS = jsonToken as JwtSecurityToken;
@@ -29,11 +30,13 @@ namespace MedAdvisor.Api.Controllers
             }
             
             
-           
+            var jti = tokenS.Claims.First(claim => claim.Type.ToString() == ClaimTypes.Name.ToString()).Value;
+            
 
-        
+            int userId = int.Parse(jti);
             
-            
+            return userId;
+
         }
     }
 }
