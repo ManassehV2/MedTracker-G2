@@ -13,22 +13,23 @@ namespace MedAdvisor.Api.Controllers;
 [Route("api/auth")]
 public class AuthController : ControllerBase
 {
-    
     private readonly IConfiguration _config;
     private readonly IUserRepository _userRepository;
 
-    public AuthController(IConfiguration config,IUserRepository userRepository)
+    public AuthController(IConfiguration config, IUserRepository userRepository)
 
     {
         _config = config;
         _userRepository = userRepository;
     }
 
-    public User createUserDto(UserDto request){
+    public User createUserDto(UserDto request)
+    {
         var encoder = new HMACSHA512();
         byte[] passwordSalt = encoder.Key;
         byte[] passwordHash = encoder.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-        var newUser = new User(){
+        var newUser = new User()
+        {
             Email = request.Email,
             HashedPassword = passwordHash,
             Salt = passwordSalt
@@ -52,7 +53,8 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public IActionResult login(UserDto request)
     {
-        try {
+        try
+        {
             if (!_userRepository.Exists(request.Email))
             {
                 var newUser = createUserDto(request);
@@ -73,27 +75,27 @@ public class AuthController : ControllerBase
         catch (Exception ex)
         {
             return BadRequest(ex.Message);
-        
-    }
 
-     string CreateToken(User user)
-    {
-        List<Claim> claims = new List<Claim>{
+        }
+
+        string CreateToken(User user)
+        {
+            List<Claim> claims = new List<Claim>{
             new Claim(ClaimTypes.Name, user.Id.ToString())
         };
 
-        var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value != "" ? _config.GetSection("AppSettings:JWTToken").Value : "some key which Is strong" ));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:JWTToken").Value != "" ? _config.GetSection("AppSettings:JWTToken").Value : "some key which Is strong"));
 
-        var cred = new SigningCredentials( key, SecurityAlgorithms.HmacSha512Signature);
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-        var token = new JwtSecurityToken(
-            claims: claims,
-            expires : DateTime.Now.AddDays(45),
-            signingCredentials: cred
-        );  
-        string jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(45),
+                signingCredentials: cred
+            );
+            string jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-        return jwtToken;
-    }
+            return jwtToken;
+        }
     }
 }

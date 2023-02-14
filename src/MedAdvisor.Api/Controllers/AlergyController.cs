@@ -51,7 +51,7 @@ namespace MedAdvisor.Api.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult AddAllergy([FromBody] AllergyData data,[FromHeader] string Authorization)
+        public IActionResult AddAllergy([FromBody] AllergyData data, [FromHeader] string Authorization)
 
         {
             if (data == null)
@@ -80,7 +80,7 @@ namespace MedAdvisor.Api.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpPost("delete")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
