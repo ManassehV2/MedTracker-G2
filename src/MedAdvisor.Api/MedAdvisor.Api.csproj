@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,12 +28,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
   </ItemGroup>
 
   <ItemGroup>
 		<ProjectReference Include="..\MedAdvisor.DataAccess.MySql\MedAdvisor.DataAccess.MySql.csproj" />
 		<ProjectReference Include="..\MedAdvisor.Models\MedAdvisor.Models.csproj" />
+	</ItemGroup>
+
+	
+	<ItemGroup>
+		<InternalsVisibleTo Include="$(AssemblyName).Test" />
 	</ItemGroup>
 
 

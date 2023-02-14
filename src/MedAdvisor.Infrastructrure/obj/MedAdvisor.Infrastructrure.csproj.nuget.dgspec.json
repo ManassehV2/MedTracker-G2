@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj": {}
+    "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj": {
+    "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj",
         "projectName": "MedAdvisor.Infrastructrure",
-        "projectPath": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\MedAdvisor.Infrastructrure.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Infrastructrure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

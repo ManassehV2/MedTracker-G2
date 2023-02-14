@@ -46,5 +46,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGet("/", () => "working properly");
 
 app.Run();

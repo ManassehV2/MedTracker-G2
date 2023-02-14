@@ -56,3 +56,4 @@ bin/
 obj/
 *.csproj.user
 .vscode
+packages/

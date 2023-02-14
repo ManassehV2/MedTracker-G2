@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6F+RERaXitlzNHuCqhQLCkKHY/CAWBd3VzyUFcMl0uV2krFsTxYXt7i9PLB8h3uvEso6g34bftrQqd2k6Ruy9A==",
+  "dgSpecHash": "7DE/7lrBVX10U42gqOaV4TAO+MCDXiBn9Fon8JjwU/p08Afjx+qiqLTzJG2nTHNCzqPxHxBPBChO6a9d9rDTFA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Services.Okta\\MedAdvisor.Services.Okta.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Services.Okta\\MedAdvisor.Services.Okta.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
