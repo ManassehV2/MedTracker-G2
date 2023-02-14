@@ -10,28 +10,28 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
         {
             _context = context;
         }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
         public Document Create(Document document)
         {
-            var created = _context.Documents.Add(document).Entity;
-            _context.SaveChanges();
+            var created = _context.Documents.Add(document).Entity;  
+            Save();
             return created;
         }
 
         public bool Delete(int userId, int documentId)
 
-        {
-            try
-            {
+        {   
+            try {
                 var document = _context.Documents.Where(doc => doc.Id == documentId && doc.UserId == userId).FirstOrDefault();
-                if (document == null)
-                {
-                    throw new Exception("Specified Document doesn't exist");
-                }
                 _context.Documents.Remove(document);
-                return _context.SaveChanges();
+                return Save();
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 return false;
             }
@@ -48,17 +48,13 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
         }
 
         public bool Update(Document document)
-        {
+        {   
             var oldDoc = _context.Documents.Where(x => x.Id == document.Id).FirstOrDefault();
 
-            if (oldDoc == null)
-            {
-                throw new Exception("Specified Document doesn't exist");
-            }
             _context.Remove(oldDoc);
             _context.Add(document);
 
-            return _context.SaveChanges();
+            return Save();
         }
     }
 }

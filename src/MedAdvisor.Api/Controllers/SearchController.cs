@@ -1,4 +1,6 @@
+using MedAdvisor.Api.DataClass;
 using MedAdvisor.DataAccess.MySql;
+using MedAdvisor.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedAdvisor.Api.Controllers

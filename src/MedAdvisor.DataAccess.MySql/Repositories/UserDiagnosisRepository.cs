@@ -14,7 +14,7 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
         public bool Save()
         {
             var saved = _context.SaveChanges();
-            return saved > 0;
+            return saved > 0 ? true : false;
         }
 
         public ICollection<Diagnosis> GetUserDiagnoses(int id)
