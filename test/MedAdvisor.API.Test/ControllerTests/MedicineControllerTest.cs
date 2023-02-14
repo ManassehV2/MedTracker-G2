@@ -97,7 +97,7 @@ namespace MedAdvisor.API.Test
         }
 
         [TestMethod]
-        [TestProperty("ExecutionOrder", "6")]
+        [TestProperty("ExecutionOrder", "7")]
         public async Task Add_Medicine_With_Invalid_medicineId_Should_Return_BadRequest()
         {
 
@@ -111,11 +111,12 @@ namespace MedAdvisor.API.Test
         }
 
         [TestMethod]
-        [TestProperty("ExecutionOrder", "7")]
+        [TestProperty("ExecutionOrder", "6")]
         public async Task Add_Medicine_With_Logged_In_User_Should_Return_Ok()
         {
             var TestClient = RunApplication();
             await AuthentiacteUser(TestClient);
+
             var response = await TestClient.PostAsJsonAsync("http://localhost:5260/api/Medicine", new MedicineData() { medicineId = 5 });
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }

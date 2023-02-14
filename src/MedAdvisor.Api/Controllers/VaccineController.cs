@@ -80,10 +80,9 @@ namespace MedAdvisor.Api.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpPost("delete")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
-        [ProducesResponseType(404)]
         public IActionResult DeleteVaccine([FromBody] VaccineDeleteData dData, [FromHeader] string Authorization)
 
         {
