@@ -16,8 +16,10 @@ namespace MedAdvisor.DataAccess.MySql.Repositories
             return _context.Users.Any(x => x.Email == email);
         }
 
-        public User GetUserByEmail(string email){
-            if(!Exists(email)){
+        public User GetUserByEmail(string email)
+        {
+            if (!Exists(email))
+            {
                 throw new Exception("User doesn't exist");
             }
             return _context.Users.FirstOrDefault(x => x.Email == email);

@@ -51,7 +51,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPatch]
-    public IActionResult updateUser(UserProfileData profile, [FromHeader] string Authorization)
+    public IActionResult updateUser([FromHeader] string Authorization,UserProfileData profile)
     {
         try
         {
