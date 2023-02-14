@@ -45,7 +45,8 @@ namespace MedAdvisor.Api.Controllers
             }
 
         }
-        
+
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -78,7 +79,7 @@ namespace MedAdvisor.Api.Controllers
 
 
         }
-        
+
         [HttpDelete]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]

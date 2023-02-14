@@ -86,7 +86,8 @@ namespace MedAdvisor.Api.Controllers
             return uploadResult.SecureUri.AbsoluteUri;
 
     }
-    
+
+
     [HttpGet]
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
@@ -103,7 +104,7 @@ namespace MedAdvisor.Api.Controllers
         }
         
     }
-    
+
     [HttpDelete("{documentId}")]
 
     [ProducesResponseType(204)]
@@ -123,7 +124,7 @@ namespace MedAdvisor.Api.Controllers
         }
 
     }
-    
+
     [HttpPatch("{documentId}")]
     [ProducesResponseType(200)]
     [ProducesResponseType(201)]
@@ -153,7 +154,7 @@ namespace MedAdvisor.Api.Controllers
             return BadRequest(ex.Message);
         }
     }
-    
+
     [HttpGet("{documentId}")]
 
     [ProducesResponseType(200)]
@@ -173,6 +174,7 @@ namespace MedAdvisor.Api.Controllers
             }
 
     }
+
 
     }
 }

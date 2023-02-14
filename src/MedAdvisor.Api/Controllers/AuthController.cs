@@ -37,6 +37,7 @@ public class AuthController : ControllerBase
         return newUser;
     }
 
+
     [HttpPost("signup")]
     public IActionResult signup(UserDto request)
     {
@@ -46,7 +47,8 @@ public class AuthController : ControllerBase
 
         return Ok();
     }
-    
+
+
     [HttpPost("login")]
     public IActionResult login(UserDto request)
     {
