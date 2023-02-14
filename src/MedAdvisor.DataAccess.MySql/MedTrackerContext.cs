@@ -1,3 +1,4 @@
+using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using MedAdvisor.Models.Models;
 using System.Security.Cryptography;
