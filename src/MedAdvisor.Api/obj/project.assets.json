@@ -1394,8 +1394,7 @@
           "MedAdvisor.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
-          "Pomelo.EntityFrameworkCore.MySql": "6.0.2"
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
         },
         "compile": {
           "bin/placeholder/MedAdvisor.DataAccess.MySql.dll": {}
@@ -4071,19 +4070,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hp\\.nuget\\packages\\": {}
+    "C:\\Users\\Lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Api\\MedAdvisor.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Api\\MedAdvisor.Api.csproj",
       "projectName": "MedAdvisor.Api",
-      "projectPath": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Api\\MedAdvisor.Api.csproj",
-      "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Api\\obj\\",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Api\\MedAdvisor.Api.csproj",
+      "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4097,11 +4096,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj": {
-              "projectPath": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj"
+            "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.DataAccess.MySql\\MedAdvisor.DataAccess.MySql.csproj"
             },
-            "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {
-              "projectPath": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj"
+            "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Desktop\\MedTracker-G2\\src\\MedAdvisor.Models\\MedAdvisor.Models.csproj"
             }
           }
         }
@@ -4188,7 +4187,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   },

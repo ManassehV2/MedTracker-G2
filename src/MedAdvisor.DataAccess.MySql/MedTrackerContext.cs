@@ -1,4 +1,3 @@
-using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using MedAdvisor.Models.Models;
 using System.Security.Cryptography;
@@ -8,7 +7,7 @@ namespace MedAdvisor.DataAccess.MySql
     public class MedTrackerContext : DbContext
     {
 
-        public MedTrackerContext(DbContextOptions<MedTrackerContext> options): base(options){}
+        public MedTrackerContext(DbContextOptions<MedTrackerContext> options) : base(options) { }
 
 
         public DbSet<User> Users { get; set; }
@@ -291,7 +290,7 @@ namespace MedAdvisor.DataAccess.MySql
                     .WithMany(ua => ua.UserAllergies)
                     .HasForeignKey(a => a.AllergyId);
 
-           
+
 
 
         }
