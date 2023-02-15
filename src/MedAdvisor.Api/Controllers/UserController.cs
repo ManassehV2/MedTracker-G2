@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-
 using AutoMapper;
 using MedAdvisor.DataAccess.MySql;
 using MedAdvisor.Models.Models;
@@ -50,7 +49,7 @@ public class UserController : ControllerBase
         }
     }
 
-    [HttpPatch]
+    [HttpPut]
     public IActionResult updateUser(UserProfileData profile, [FromHeader] string Authorization)
     {
         try

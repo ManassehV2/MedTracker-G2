@@ -6,11 +6,9 @@ namespace MedAdvisor.Models.Models
     public class Allergy
     {
         public int Id { get; set; }
-
-        [Required]        
+       
         public string Name { get; set; }
-
-        [Required]        
+       
         public string Code { get; set; }
 
         public ICollection<UserAllergy> UserAllergies { get; set; } = null!;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WB6nGmF2fOg8AxrQ7TVDwhl9YytNUvW3xYQ2I42TTD4CR5Qtm2oeU5meZgEOQtzb+VOWwH7WLtw/2UucRzt3rg==",
+  "dgSpecHash": "+79zlr4DqoM6ibFj7daH0H1HQM9G83xla6f/sLXz6TBS0tqPa6JyPIjXGcdaf66XRKpMM/bfZqjo2kmaGdE8gw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lenovo\\Desktop\\C#\\MedTracker-G2\\src\\MedAdvisor.Commons\\MedAdvisor.Commons.csproj",
+  "projectFilePath": "C:\\Users\\Hp\\Desktop\\mock\\MedTracker-G2\\src\\MedAdvisor.Commons\\MedAdvisor.Commons.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using MedAdvisor.Api.DataClass;
 using System.Security.Cryptography;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
@@ -68,7 +68,9 @@ public class AuthController : ControllerBase
                 return BadRequest("Invalid Credentials!");
 
 
-            return Ok(CreateToken(user));
+            return Ok(new TokenData(){
+                token = CreateToken(user)
+            });
         }
         catch (Exception ex)
         {

@@ -13,37 +13,33 @@ namespace MedAdvisor.Models.Models
         public string? FirstName { get; set; }
 
         public string? LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
         public enum Gendertypes
         {
             Female,
             Male
         }
-        public Gendertypes Gender { get; set; }
-        public string Ssn { get; set; } = string.Empty;
-        public string Nationality { get; set; } = string.Empty;
-        public string Telephone { get; set; } = string.Empty;
-        public bool OrganDonor { get; set; }
-        public string Postnr { get; set; } = string.Empty;
-        public string City { get; set; } = string.Empty;
-        public string Land { get; set; } = string.Empty;
-        public string StreetAddress { get; set; } = string.Empty;
-        public string TypeOfInsurance { get; set; } = string.Empty;
-        public string InsuranceCompany { get; set; } = string.Empty;
-        public string AlarmTel { get; set; } = string.Empty;
-        public string EmergencyContactName1 { get; set; } = string.Empty;
-        public string EmergencyContactPhone1{ get; set; } = string.Empty;
-        public string EmergencyContactRel1 { get; set; } = string.Empty;
-
-        public string EmergencyContactName2 { get; set; } = string.Empty;
-        public string EmergencyContactPhone2 { get; set; } = string.Empty;
-        public string EmergencyContactRel2 { get; set; } = string.Empty;
-
-
-
-        public string Other { get; set; } = string.Empty;
+        public Gendertypes? Gender { get; set; }
+        public string? Ssn { get; set; } 
+        public string? Nationality { get; set; } 
+        public string? Telephone { get; set; } 
+        public bool? OrganDonor { get; set; }
+        public string? Postnr { get; set; } 
+        public string? City { get; set; } 
+        public string? Land { get; set; } 
+        public string? StreetAddress { get; set; } 
+        public string? TypeOfInsurance { get; set; } 
+        public string? InsuranceCompany { get; set; } 
+        public string? AlarmTel { get; set; } 
+        public string? EmergencyContactName1 { get; set; } 
+        public string? EmergencyContactPhone1{ get; set; } 
+        public string? EmergencyContactRel1 { get; set; } 
+        public string? EmergencyContactName2 { get; set; } 
+        public string? EmergencyContactPhone2 { get; set; } 
+        public string? EmergencyContactRel2 { get; set; } 
+        public string? Other { get; set; } 
 
         public ICollection<UserAllergy> UserAllergies { get; set; } = null!;
 

@@ -11,7 +11,6 @@ namespace MedAdvisor.Models.Models
 
         public User User { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
         public enum Documenttypes
